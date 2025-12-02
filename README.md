@@ -19,6 +19,7 @@ Currently prebuilt file only for Jetpack 6.2 (L4T 36.4.4)
 
     ```bash
     cd jetson-orin-exfat-module-prebuild
+    chmod +x install_exfat_module.sh
     ./install_exfat_module.sh
     ```
 
