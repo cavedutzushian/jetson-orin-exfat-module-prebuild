@@ -1,9 +1,12 @@
 # jetson-orin-exfat-module-prebuild
+
+## 中文請見 [README_zhtw.md](README_zhtw.md)
+
 Prebuilt exFAT filesystem kernel module on Jetson Orin
 
-Built and tested on Jetson AGX Orin Developer Kit (Jetpack 6.2 / L4T 36.4.4)
+Built and tested on Jetson AGX Orin Developer Kit and Orin Nano Developer Kits (Jetpack 6.2.1 / L4T 36.4.4)
 
-Currently prebuilt file only for Jetpack 6.2 (L4T 36.4.4)
+Currently prebuilt file only for Jetpack 6.2.1 (L4T 36.4.4)
 
 ## How to Install the prebuilt module
 
@@ -19,9 +22,10 @@ Currently prebuilt file only for Jetpack 6.2 (L4T 36.4.4)
 
     ```bash
     cd jetson-orin-exfat-module-prebuild
-    chmod +x install_exfat_module.sh
     ./install_exfat_module.sh
     ```
+
+3. Enjoy your exFAT filesystem support!
 
 ## How to Build your own module
 
@@ -29,38 +33,38 @@ The easiest way to build kernel module for Jetson Orin at this moment(2025/12/02
 
 1. Clone [jetsonhacks/jetson-orin-kernel-builder](https://github.com/jetsonhacks/jetson-orin-kernel-builder) repository
 
-   ```bash
-   git clone https://github.com/jetsonhacks/jetson-orin-kernel-builder.git 
-   ```
+    ```bash
+    git clone https://github.com/jetsonhacks/jetson-orin-kernel-builder.git 
+    ```
 
 2. Download the kernel source by script
 
-   ```bash
-   cd jetson-orin-kernel-builder
-   ./scripts/get_kernel_source.sh
-   ```
+    ```bash
+    cd jetson-orin-kernel-builder
+    ./scripts/get_kernel_source.sh
+    ```
 
 3. Edit kernel configuration to enable exFAT module
 
-   ```bash
-   ./scripts/edit_config_cli.sh
-   ```
+    ```bash
+    ./scripts/edit_config_cli.sh
+    ```
 
-   This command will open an CLI Interface. 
+    This command will open an CLI Interface. 
    
-   For exFAT support, navigate to `File systems` -> `DOS/FAT/EXFAT/NT Filesystems` -> `exFAT filesystem support` and set it to `<M>` to build as a module. Then save and exit.
+    For exFAT support, navigate to `File systems` -> `DOS/FAT/EXFAT/NT Filesystems` -> `exFAT filesystem support` and set it to `<M>` to build as a module. Then save and exit.
 
-   ![img](assets/main_menu.png)
-   ![img](assets/fs_menu.png)
-   ![img](assets/exfat_fs.png)
+    ![img](assets/main_menu.png)
+    ![img](assets/fs_menu.png)
+    ![img](assets/exfat_fs.png)
 
 4. Build the kernel module
 
-   ```bash
-   ./scripts/make_kernel_modules.sh
-   ```
+    ```bash
+    ./scripts/make_kernel_modules.sh
+    ```
 
-   If you just want to build exFAT module for this machine only, you can just installed it directly by following script instruction after build complete.
+    If you just want to build exFAT module for this machine only, you can just installed it directly by following script instruction after build complete.
 
 5. (If needed) Copy the built module
 
